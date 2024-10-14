@@ -1,8 +1,8 @@
 from typer import Typer
+from . import server_cli, databse_cli
 
 app = Typer()
 
 
-@app.command()
-def hello(name: str):
-    print(f"Hello {name}")
+app.add_typer(server_cli.subcommand, name="server")
+app.add_typer(databse_cli.subcommand, name="database")

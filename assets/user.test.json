@@ -1,0 +1,29 @@
+[
+    {
+        "username": "testuser1",
+        "email": "testuser1@example.com",
+        "password": "hashedpassword1",
+        "disabled": false,
+        "signature": "Best regards, Test User 1",
+        "realname": "Test User One",
+        "student_id": "12345678"
+    },
+    {
+        "username": "testuser2",
+        "email": "testuser2@example.com",
+        "password": "hashedpassword2",
+        "disabled": false,
+        "signature": "Best regards, Test User 2",
+        "realname": "Test User Two",
+        "student_id": "87654321"
+    },
+    {
+        "username": "testuser3",
+        "email": "testuser3@example.com",
+        "password": "hashedpassword3",
+        "disabled": true,
+        "signature": "Best regards, Test User 3",
+        "realname": "Test User Three",
+        "student_id": "11223344"
+    }
+]

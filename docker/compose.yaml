@@ -1,0 +1,15 @@
+name: "raa-openvault"
+services:
+  mariadb:
+    image: mariadb:11.5.2
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: nqEd7NCjRtaqe9pQ 
+      MYSQL_DATABASE: raa-openvault
+      MYSQL_USER: raa-openvault
+      MYSQL_PASSWORD: 7gXeSjOGWyRWsdeK
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
