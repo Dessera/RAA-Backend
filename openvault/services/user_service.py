@@ -59,6 +59,13 @@ async def get_user_by_id(user_id: UUID) -> UserInfoSchema:
     return await UserInfoSchema.from_tortoise_orm(user_obj)
 
 
+async def get_user_by_username(username: str) -> UserInfoSchema:
+    user_obj = await User.filter(username=username).first()
+    if user_obj is None:
+        raise DoesNotExist("User")
+    return await UserInfoSchema.from_tortoise_orm(user_obj)
+
+
 async def get_user_list() -> list[UserInfoSchema]:
     return await UserInfoSchema.from_queryset(User.all())
 
