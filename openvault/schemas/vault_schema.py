@@ -1,6 +1,4 @@
 from tortoise.contrib.pydantic import pydantic_model_creator, PydanticModel
-from pydantic import BaseModel
-from enum import Enum
 from typing import TYPE_CHECKING
 from ..models.vault_model import Vault
 

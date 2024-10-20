@@ -15,12 +15,26 @@ register_orm = partial(
     modules={"models": SCHEMAS},
 )
 
+register_test_orm = partial(
+    RegisterTortoise,
+    db_url=CONFIG.database_test_url,
+    modules={"models": SCHEMAS},
+    _create_db=True,
+)
+
 
 async def init_db():
     """初始化数据库连接，在 FastAPI 外部使用。"""
     await Tortoise.init(
         db_url=CONFIG.database_url,
         modules={"models": SCHEMAS},
+    )
+
+
+async def init_test_db():
+    """初始化数据库连接，在 FastAPI 外部使用。"""
+    await Tortoise.init(
+        db_url=CONFIG.database_test_url, modules={"models": SCHEMAS}, _create_db=True
     )
 
 
@@ -39,6 +53,10 @@ async def clear_db():
             f"DROP TABLE IF EXISTS {Model._meta.db_table} CASCADE;"
         )
         print(f"Table {Model._meta.db_table} dropped.")
+
+
+async def clear_test_db():
+    await Tortoise._drop_databases()
 
 
 def get_db_models():

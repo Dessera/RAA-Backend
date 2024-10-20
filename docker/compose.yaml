@@ -1,7 +1,7 @@
 name: "raa-openvault"
 services:
   mariadb:
-    image: mariadb:11.2.4
+    image: mariadb:11.5.2
     container_name: mariadb
     restart: always
     environment:

@@ -10,12 +10,12 @@ from .error import include_app_error_handlers
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def general_lifespan(app: FastAPI):
     async with register_orm(app):
         yield
 
 
-def create_app() -> FastAPI:
+def create_app(lifespan=general_lifespan) -> FastAPI:
     """创建FastAPI实例，挂载路由、中间件、错误处理等
 
     Returns:
