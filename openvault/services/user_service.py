@@ -35,6 +35,10 @@ def create_access_token(user_id: UUID) -> str:
     )
 
 
+def decode_access_token(token: str) -> dict:
+    return jwt.decode(token, CONFIG.auth_secret_key, algorithms=[CONFIG.auth_algorithm])
+
+
 async def login_user(user: UserLoginSchema) -> UserInfoSchema:
     crypted_password = hash_password(user.password)
     user_obj = await User.filter(
